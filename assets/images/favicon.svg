@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="favGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Tło -->
+  <rect width="32" height="32" rx="6" fill="#0a0a0a"/>
+
+  <!-- Logo - uproszczona wersja -->
+  <path d="M16 6L18.5 11L23.5 12.5L18.5 14L16 19L13.5 14L8.5 12.5L13.5 11L16 6Z" fill="url(#favGrad)"/>
+
+  <!-- Akcent -->
+  <circle cx="16" cy="12.5" r="1.5" fill="#3B82F6" opacity="0.9"/>
+  <path d="M6 26 Q16 24 26 26" stroke="url(#favGrad)" stroke-width="1.5" fill="none" opacity="0.6"/>
+</svg>
