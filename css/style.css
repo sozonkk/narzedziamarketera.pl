@@ -106,6 +106,12 @@ html {
     transition: all 0.3s ease;
 }
 
+/* Floating header on scroll */
+.header.scrolled {
+    padding: 0.75rem 0;
+    box-shadow: var(--shadow-md);
+}
+
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -133,6 +139,15 @@ html {
     font-size: 0.85rem;
     font-weight: 400;
     color: var(--text-secondary);
+}
+
+.logo-link {
+    display: inline-flex;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.1);
 }
 
 .logo-batweb {
@@ -625,6 +640,15 @@ html {
     justify-content: center;
     gap: 0.5rem;
     flex-wrap: wrap;
+}
+
+.footer-logo-link {
+    display: inline-flex;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo-link:hover {
+    transform: scale(1.1);
 }
 
 .footer-logo {

@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initTheme();
     await loadTools();
     setupEventListeners();
+    setupScrollListener();
     renderTools();
 });
 
@@ -32,6 +33,27 @@ function toggleTheme() {
 
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+}
+
+// ========================================
+// SCROLL MANAGEMENT
+// ========================================
+
+function setupScrollListener() {
+    const header = document.querySelector('.header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        lastScroll = currentScroll;
+    });
 }
 
 // ========================================
