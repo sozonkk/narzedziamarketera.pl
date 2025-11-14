@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Narzędzia Marketera by BatWeb</title>
     <meta name="description" content="Najlepsze narzędzia dla marketerów - od email marketingu po SEO i analytics">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="alternate icon" href="assets/images/favicon.svg">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="no-overscroll">
@@ -12,6 +17,7 @@
     <header class="header">
         <div class="container header-container">
             <div class="logo">
+                <img src="assets/images/logo.svg" alt="Logo" style="width: 42px; height: 42px; margin-right: 0.5rem;" />
                 <h1>Narzędzia Marketera <span class="by-text">by</span></h1>
                 <a href="https://batweb.pl/" target="_blank" rel="noopener noreferrer" class="logo-link">
                     <img src="assets/images/batweb-logo-light.svg" alt="BatWeb" class="logo-batweb logo-light" />
@@ -81,7 +87,7 @@
 
             <div class="no-results" id="noResults" style="display: none;">
                 <p>Nie znaleziono narzędzi spełniających kryteria 😔</p>
-                <button onclick="resetFilters()" class="btn-primary">Wyczyść filtry</button>
+                <button onclick="resetFilters()" class="btn-primary"><span>Wyczyść filtry</span></button>
             </div>
         </div>
     </section>
@@ -133,7 +139,7 @@
 
                 <div class="modal-footer">
                     <a href="#" target="_blank" rel="noopener noreferrer" id="modalLink" class="btn-primary btn-large">
-                        Otwórz narzędzie →
+                        <span>Otwórz narzędzie →</span>
                     </a>
                 </div>
             </div>
