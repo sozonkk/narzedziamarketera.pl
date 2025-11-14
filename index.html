@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narzędzia Marketera by BatWeb</title>
+    <meta name="description" content="Najlepsze narzędzia dla marketerów - od email marketingu po SEO i analytics">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Narzędzia Marketera <span class="by-batweb">by BatWeb</span></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2 class="hero-title">Odkryj najlepsze narzędzia <span class="highlight">dla marketerów</span></h2>
+            <p class="hero-subtitle">Starannie wyselekcjonowana kolekcja narzędzi marketingowych - od email marketingu po SEO</p>
+
+            <!-- Search & Filters -->
+            <div class="filters-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Szukaj narzędzia...">
+                    <span class="search-icon">🔍</span>
+                </div>
+
+                <div class="filters">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">Wszystkie kategorie</option>
+                        <option value="Email Marketing">Email Marketing</option>
+                        <option value="Analytics">Analytics</option>
+                        <option value="Design">Design</option>
+                        <option value="SEO">SEO</option>
+                        <option value="CRM & Marketing">CRM & Marketing</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Automatyzacja">Automatyzacja</option>
+                    </select>
+
+                    <select id="pricingFilter" class="filter-select">
+                        <option value="">Wszystkie ceny</option>
+                        <option value="Darmowe">Darmowe</option>
+                        <option value="Freemium">Freemium</option>
+                        <option value="Płatne">Płatne</option>
+                    </select>
+
+                    <select id="levelFilter" class="filter-select">
+                        <option value="">Wszystkie poziomy</option>
+                        <option value="Początkujący">Początkujący</option>
+                        <option value="Średniozaawansowany">Średniozaawansowany</option>
+                        <option value="Zaawansowany">Zaawansowany</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Grid -->
+    <section class="tools-section">
+        <div class="container">
+            <div class="tools-count">
+                Znaleziono: <span id="toolsCount">0</span> narzędzi
+            </div>
+
+            <div class="tools-grid" id="toolsGrid">
+                <!-- Tools will be inserted here by JavaScript -->
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <p>Nie znaleziono narzędzi spełniających kryteria 😔</p>
+                <button onclick="resetFilters()" class="btn-primary">Wyczyść filtry</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon" id="modalIcon"></div>
+                    <div>
+                        <h2 class="modal-title" id="modalTitle"></h2>
+                        <div class="modal-badges">
+                            <span class="badge badge-category" id="modalCategory"></span>
+                            <span class="badge badge-pricing" id="modalPricing"></span>
+                            <span class="badge badge-level" id="modalLevel"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-section">
+                        <h3>📝 Opis</h3>
+                        <p id="modalDescription"></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>👥 Dla kogo?</h3>
+                        <p id="modalTarget"></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>💰 Cennik</h3>
+                        <p id="modalPrice"></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🎯 Kto wyniesie najwięcej?</h3>
+                        <p id="modalBestFor"></p>
+                    </div>
+
+                    <div class="modal-section">
+                        <h3>🚀 Jak zacząć?</h3>
+                        <div id="modalHowToStart" class="how-to-start"></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <a href="#" target="_blank" rel="noopener noreferrer" id="modalLink" class="btn-primary btn-large">
+                        Otwórz narzędzie →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Narzędzia Marketera by BatWeb. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
