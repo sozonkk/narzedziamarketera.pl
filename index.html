@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +7,19 @@
     <meta name="description" content="Najlepsze narzędzia dla marketerów - od email marketingu po SEO i analytics">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="no-overscroll">
     <!-- Header -->
     <header class="header">
-        <div class="container">
+        <div class="container header-container">
             <div class="logo">
-                <h1>Narzędzia Marketera <span class="by-batweb">by BatWeb</span></h1>
+                <h1>Narzędzia Marketera <span class="by-text">by</span></h1>
+                <img src="assets/images/BatWeb-logo-light.png" alt="BatWeb" class="logo-batweb logo-light" />
+                <img src="assets/images/BatWeb-logo-dark.png" alt="BatWeb" class="logo-batweb logo-dark" />
             </div>
+            <button id="themeToggle" class="theme-toggle" aria-label="Przełącz motyw">
+                <span class="theme-icon sun-icon">☀️</span>
+                <span class="theme-icon moon-icon">🌙</span>
+            </button>
         </div>
     </header>
 
@@ -135,7 +141,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Narzędzia Marketera by BatWeb. Wszystkie prawa zastrzeżone.</p>
+            <p>
+                &copy; 2025 Narzędzia Marketera jest częścią BatWeb.pl - Realizacja
+                <img src="assets/images/BatWeb-logo-light.png" alt="BatWeb" class="footer-logo logo-light" />
+                <img src="assets/images/BatWeb-logo-dark.png" alt="BatWeb" class="footer-logo logo-dark" />
+            </p>
         </div>
     </footer>
 

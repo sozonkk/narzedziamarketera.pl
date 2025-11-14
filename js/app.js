@@ -10,10 +10,29 @@ let filteredTools = [];
 // ========================================
 
 document.addEventListener('DOMContentLoaded', async () => {
+    initTheme();
     await loadTools();
     setupEventListeners();
     renderTools();
 });
+
+// ========================================
+// THEME MANAGEMENT
+// ========================================
+
+function initTheme() {
+    // Load theme from localStorage or default to dark
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
 
 // ========================================
 // LOAD TOOLS FROM JSON
@@ -36,6 +55,10 @@ async function loadTools() {
 // ========================================
 
 function setupEventListeners() {
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', toggleTheme);
+
     // Search input
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', debounce(handleSearch, 300));
@@ -138,8 +161,14 @@ function createToolCard(tool) {
     card.className = 'tool-card';
     card.onclick = () => openModal(tool);
 
+    const logoUrl = getLogoUrl(tool);
+    const iconHtml = logoUrl
+        ? `<img src="${logoUrl}" alt="${tool.name} logo" class="tool-icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+           <span class="tool-icon" style="display:none; font-size:3rem;">${tool.icon}</span>`
+        : `<span class="tool-icon" style="font-size:3rem;">${tool.icon}</span>`;
+
     card.innerHTML = `
-        <span class="tool-icon">${tool.icon}</span>
+        ${iconHtml}
         <h3 class="tool-name">${tool.name}</h3>
         <p class="tool-description">${tool.shortDescription}</p>
         <div class="tool-badges">
@@ -159,8 +188,17 @@ function createToolCard(tool) {
 function openModal(tool) {
     const overlay = document.getElementById('modalOverlay');
 
-    // Populate modal
-    document.getElementById('modalIcon').textContent = tool.icon;
+    // Populate modal icon (logo or emoji)
+    const modalIcon = document.getElementById('modalIcon');
+    const logoUrl = getLogoUrl(tool);
+
+    if (logoUrl) {
+        modalIcon.innerHTML = `<img src="${logoUrl}" alt="${tool.name} logo" style="width:64px;height:64px;object-fit:contain;border-radius:12px;" onerror="this.parentElement.textContent='${tool.icon}'">`;
+    } else {
+        modalIcon.textContent = tool.icon;
+        modalIcon.style.fontSize = '4rem';
+    }
+
     document.getElementById('modalTitle').textContent = tool.name;
     document.getElementById('modalCategory').textContent = tool.category;
     document.getElementById('modalPricing').textContent = tool.pricing;
@@ -193,6 +231,18 @@ function closeModal() {
 // ========================================
 // UTILITIES
 // ========================================
+
+function getLogoUrl(tool) {
+    // Extract domain from URL
+    try {
+        const url = new URL(tool.url);
+        const domain = url.hostname.replace('www.', '');
+        return `https://logo.clearbit.com/${domain}`;
+    } catch (e) {
+        // Fallback to emoji if URL parsing fails
+        return null;
+    }
+}
 
 function debounce(func, wait) {
     let timeout;
