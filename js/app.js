@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupEventListeners();
     setupScrollListener();
     renderTools();
+    initTypewriterEffect();
 });
 
 // ========================================
@@ -286,6 +287,69 @@ function showError() {
             <p style="color: #a3a3a3;">Nie udało się załadować narzędzi. Odśwież stronę.</p>
         </div>
     `;
+}
+
+// ========================================
+// TYPEWRITER EFFECT
+// ========================================
+
+function initTypewriterEffect() {
+    const searchInput = document.getElementById('searchInput');
+    const toolNames = [
+        'Mailchimp',
+        'Google Analytics',
+        'Canva',
+        'SEMrush',
+        'HubSpot',
+        'Buffer',
+        'Ahrefs',
+        'Zapier',
+        'ConvertKit',
+        'Hotjar'
+    ];
+
+    let currentToolIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    let isPaused = false;
+
+    function type() {
+        const currentTool = toolNames[currentToolIndex];
+
+        if (isPaused) {
+            setTimeout(type, 2000); // Pause for 2 seconds
+            isPaused = false;
+            return;
+        }
+
+        if (isDeleting) {
+            currentCharIndex--;
+            searchInput.setAttribute('placeholder', currentTool.substring(0, currentCharIndex));
+
+            if (currentCharIndex === 0) {
+                isDeleting = false;
+                currentToolIndex = (currentToolIndex + 1) % toolNames.length;
+                setTimeout(type, 500); // Pause before typing next word
+                return;
+            }
+        } else {
+            currentCharIndex++;
+            searchInput.setAttribute('placeholder', currentTool.substring(0, currentCharIndex));
+
+            if (currentCharIndex === currentTool.length) {
+                isDeleting = true;
+                isPaused = true;
+                setTimeout(type, 2000); // Pause when word is complete
+                return;
+            }
+        }
+
+        const speed = isDeleting ? 50 : 100;
+        setTimeout(type, speed);
+    }
+
+    // Start the effect
+    type();
 }
 
 // ========================================
