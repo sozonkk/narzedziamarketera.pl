@@ -580,14 +580,9 @@ html {
     padding: 3rem 0;
     text-align: center;
     color: var(--text-muted);
-    background: #FFFFFF;
+    background: var(--bg-card);
     position: relative;
     z-index: 2;
-}
-
-[data-theme="dark"] .footer {
-    background: #FFFFFF;
-    color: #737373;
 }
 
 .footer p {
