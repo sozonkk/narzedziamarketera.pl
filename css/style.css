@@ -102,9 +102,11 @@ html {
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: all 0.3s ease;
 }
 
 .header.scrolled {
+    padding: 0.75rem 0;
     box-shadow: var(--shadow);
 }
 
@@ -125,6 +127,11 @@ html {
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: -0.01em;
+    transition: font-size 0.3s ease;
+}
+
+.header.scrolled .logo h1 {
+    font-size: 1rem;
 }
 
 .by-text {
@@ -145,6 +152,11 @@ html {
 
 .logo-batweb {
     height: 22px;
+    transition: height 0.3s ease;
+}
+
+.header.scrolled .logo-batweb {
+    height: 18px;
 }
 
 [data-theme="dark"] .logo-dark,
@@ -162,7 +174,12 @@ html {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s;
+}
+
+.header.scrolled .theme-toggle {
+    width: 36px;
+    height: 36px;
 }
 
 .theme-toggle:hover {
