@@ -149,6 +149,21 @@
       "bestFor": "Osoby optymalizujące konwersję które chcą zobaczyć zachowania użytkowników",
       "url": "https://hotjar.com",
       "icon": "🔥"
+    },
+    {
+      "id": "gallery-dl",
+      "name": "gallery-dl",
+      "category": "Automatyzacja",
+      "level": "Średniozaawansowany",
+      "pricing": "Darmowe",
+      "priceDetails": "Całkowicie darmowe, open source (licencja GPL-2.0)",
+      "shortDescription": "Narzędzie CLI do masowego pobierania zdjęć i filmów",
+      "description": "gallery-dl to potężne narzędzie wiersza poleceń do pobierania galerii i kolekcji obrazów oraz filmów z ponad 100 serwisów. Obsługuje platformy jak Instagram, Twitter, Pixiv, DeviantArt, Reddit, Tumblr i wiele innych. Oferuje zaawansowane opcje konfiguracji, nazewnictwa plików i uwierzytelniania.",
+      "targetAudience": "Content creatorzy, marketerzy, archiwiści, social media managerzy",
+      "howToStart": "1. Zainstaluj Python 3.8 lub nowszy\n2. Zainstaluj gallery-dl przez pip: pip install gallery-dl\n3. Uruchom w terminalu: gallery-dl [URL]\n4. Skonfiguruj opcje w pliku config (opcjonalnie)\n5. Pobieraj całe galerie jednym poleceniem",
+      "bestFor": "Osoby potrzebujące automatyzować pobieranie dużych ilości materiałów wizualnych z różnych platform do celów marketingowych lub archiwalnych",
+      "url": "https://github.com/mikf/gallery-dl",
+      "icon": "🐙"
     }
   ]
 }
